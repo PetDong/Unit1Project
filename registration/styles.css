@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tilt Neon',sans-serif;
+    overflow-y: hidden;
+}
+body{
+    background: linear-gradient(135deg, #fefae0, #faedcd);
+}
+main{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.oceanic{
+    font-family: "Marhey", sans-serif;
+    font-weight: 400;
+    color: #8ecae6;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 30px;
+    animation: ocean 1s ease forwards;
+    opacity: 0;
+}
+.container{
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    animation: popUp 1s ease forwards 1s;
+    opacity: 0;
+    position: absolute;
+}
+.container .title{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+.container .title::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #8ecae6, #219ebc);
+}
+.content form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+form .input-box span.details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: #219ebc;
+}
+form .gender-details .gender-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+form .category{
+    display: flex;
+    width: 80%;
+    margin: 14px 0 ;
+    justify-content: space-between;
+}
+form .category label{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+form .category label .dot{
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #d9d9d9;
+    border: 5px solid transparent;
+    transition: all 0.3s ease;
+}
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two,
+#dot-3:checked ~ .category label .three{
+    background: #219ebc;
+    border-color: #d9d9d9;
+}
+form input[type="radio"]{
+    display: none;
+}
+form .button{
+    height: 45px;
+    margin: 35px 0
+}
+form .button input{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #8ecae6, #219ebc);
+}
+form .button input:hover{
+    background: linear-gradient(-135deg, #8ecae6, #219ebc);
+}
+
+footer{
+    position: relative;
+    z-index: -1;
+    overflow: visible;
+}
+.wavi{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    overflow: visible;
+    height: 20px;
+}
+.wavi .wave{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(wave.png);
+    background-size: 1000px 100px;
+    filter: invert(45%) sepia(78%) saturate(449%) hue-rotate(144deg) brightness(100%) contrast(92%);
+}
+.wavi .wave.wave1{
+    animation: animate 30s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+}
+.wavi .wave.wave2{
+    animation: animate2 5s linear infinite -5s;
+    z-index: 999;
+    opacity: .5;
+    bottom: 10px;
+}
+.wavi .wave.wave3{
+    animation: animate 15s linear infinite -2s;
+    z-index: 998;
+    opacity: .2;
+    bottom: 15px;
+}
+.wavi .wave.wave4{
+    animation: animate2 30s linear infinite -5s;
+    z-index: 997;
+    opacity: .7;
+    bottom: 20px;
+}
+
+
+
+@media(max-width: 584px){
+    .container{
+        max-width: 100%;
+    }
+    form .user-details .input-box{
+    margin-bottom: 15px;
+    width: 100%;
+    }
+    form .category{
+    width: 100%;
+    }
+    .content form .user-details{
+    max-height: 300px;
+    overflow-y: scroll;
+    }
+    .user-details::-webkit-scrollbar{
+    width: 5px;
+    }
+}
+@media(max-width: 459px){
+    .container .content .category{
+    flex-direction: column;
+    }
+    .wavi{
+        height: 2px;
+    }
+}
+@keyframes popUp {
+    0%{
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes ocean {
+    0%{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes animate {
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 1000px;
+    }
+}
+@keyframes animate2 {
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: -1000px;
+    }
+}
